@@ -23,7 +23,9 @@ const ShoeIndex = ({ sortId, setSortId }: ShoeIndexProps) => {
           <Select
             label="Sort"
             value={sortId}
-            onChange={(ev: React.ChangeEvent<HTMLSelectElement>) => setSortId(ev.target.value)}
+            onChange={(ev: React.ChangeEvent<HTMLSelectElement>) =>
+              setSortId(ev.target.value)
+            }
           >
             <option value="newest">Newest Releases</option>
             <option value="price">Price</option>
@@ -36,9 +38,7 @@ const ShoeIndex = ({ sortId, setSortId }: ShoeIndexProps) => {
         <Breadcrumbs>
           <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
           <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
+          <Breadcrumbs.Crumb href="/sale/shoes">Shoes</Breadcrumbs.Crumb>
         </Breadcrumbs>
         <Spacer size={42} />
         <ShoeSidebar />

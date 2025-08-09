@@ -19,10 +19,14 @@ interface SelectProps {
 const Select = ({ label, value, children, ...delegated }: SelectProps) => {
   const childArray = React.Children.toArray(children);
   const selectedChild = childArray.find(
-    (child) => React.isValidElement(child) && (child.props as OptionProps).value === value
+    (child) =>
+      React.isValidElement(child) &&
+      (child.props as OptionProps).value === value
   );
 
-  const displayedValue = React.isValidElement(selectedChild) ? (selectedChild.props as OptionProps).children : '';
+  const displayedValue = React.isValidElement(selectedChild)
+    ? (selectedChild.props as OptionProps).children
+    : '';
 
   return (
     <Wrapper>
@@ -33,11 +37,7 @@ const Select = ({ label, value, children, ...delegated }: SelectProps) => {
 
         <DisplayedBit>
           {displayedValue}
-          <ChevronIcon
-            id="chevron-down"
-            size={24}
-            strokeWidth={1.5}
-          />
+          <ChevronIcon id="chevron-down" size={24} strokeWidth={1.5} />
         </DisplayedBit>
       </SelectWrapper>
     </Wrapper>
