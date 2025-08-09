@@ -44,7 +44,12 @@ const Select = ({ label, value, children, ...delegated }: SelectProps) => {
   );
 };
 
-const Wrapper = styled.label``;
+const Wrapper = styled.label`
+  display: flex;
+  align-items: baseline;
+  // Prevent select option text from wrapping
+  white-space: nowrap;
+`;
 
 const VisibleLabel = styled.span`
   color: ${COLORS.gray[700]};
@@ -53,7 +58,6 @@ const VisibleLabel = styled.span`
 
 const SelectWrapper = styled.div`
   position: relative;
-  display: inline-block;
 `;
 
 const NativeSelect = styled.select`
@@ -74,7 +78,7 @@ const DisplayedBit = styled.span`
   font-size: 1rem;
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.gray[900]};
-  padding: 9.4px 42px 9.4px 16px;
+  padding: 12px 42px 12px 16px;
   border-radius: 8px;
   pointer-events: none;
 

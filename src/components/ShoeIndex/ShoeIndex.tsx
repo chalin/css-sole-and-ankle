@@ -37,13 +37,11 @@ const ShoeIndex = ({ sortId, setSortId }: ShoeIndexProps) => {
         <ShoeGrid />
       </MainColumn>
       <LeftColumn>
-        <BreadcrumbsWrapper>
-          <Breadcrumbs>
-            <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-            <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-            <Breadcrumbs.Crumb href="/sale/shoes">Shoes</Breadcrumbs.Crumb>
-          </Breadcrumbs>
-        </BreadcrumbsWrapper>
+        <Breadcrumbs>
+          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+          <Breadcrumbs.Crumb href="/sale/shoes">Shoes</Breadcrumbs.Crumb>
+        </Breadcrumbs>
         <Spacer size={24} />
         <ShoeSidebar />
       </LeftColumn>
@@ -54,11 +52,17 @@ const ShoeIndex = ({ sortId, setSortId }: ShoeIndexProps) => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  gap: 32px;
+  align-items: baseline;
+  gap: ${2 * _1remPx}px;
+
+  // FIXME: temporary during development:
+  img {
+    width: 200px;
+  }
 `;
 
 const LeftColumn = styled.div`
-  flex: 0;
+  flex: 0 0 ${248 / _1remPx}rem;
 `;
 
 const MainColumn = styled.div`
@@ -68,18 +72,14 @@ const MainColumn = styled.div`
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   max-height: ${mainHeaderHeightPx / _1remPx}rem;
+  gap: ${2 * _1remPx}px;
 `;
 
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
-`;
-
-const BreadcrumbsWrapper = styled.div`
-  height: ${mainHeaderHeightPx / _1remPx}rem;
-  display: flex;
-  align-items: center;
 `;
 
 export default ShoeIndex;

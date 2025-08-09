@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { _1remPx, COLORS, WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS } from '../../constants';
 
 const Sidebar = () => {
   return (
@@ -24,7 +24,6 @@ const Sidebar = () => {
 };
 
 const Wrapper = styled.aside`
-  width: ${248 / _1remPx}rem;
 `;
 
 const Link = styled.a`
