@@ -12,9 +12,19 @@ const icons = {
   menu: Menu,
   'shopping-bag': ShoppingBag,
   'chevron-down': ChevronDown,
-};
+} as const;
 
-const Icon = ({ id, color, size, strokeWidth, ...delegated }) => {
+type IconId = keyof typeof icons;
+
+interface IconProps {
+  id: IconId;
+  color?: string;
+  size?: number | string;
+  strokeWidth?: number;
+  [key: string]: any;
+}
+
+const Icon = ({ id, color, size, strokeWidth, ...delegated }: IconProps) => {
   const Component = icons[id];
 
   if (!Component) {
@@ -28,7 +38,7 @@ const Icon = ({ id, color, size, strokeWidth, ...delegated }) => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ strokeWidth?: number }>`
   & > svg {
     display: block;
     stroke-width: ${(p) => p.strokeWidth}px;

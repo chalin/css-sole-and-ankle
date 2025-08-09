@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { COLORS, WEIGHTS } from '../../constants';
 import { formatPrice, pluralize, isNewShoe } from '../../utils';
+import { Shoe } from '../../data';
 import Spacer from '../Spacer';
 
 const ShoeCard = ({
@@ -13,7 +14,7 @@ const ShoeCard = ({
   salePrice,
   releaseDate,
   numOfColors,
-}) => {
+}: Shoe) => {
   // There are 3 variants possible, based on the props:
   //   - new-release
   //   - on-sale

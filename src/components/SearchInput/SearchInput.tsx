@@ -5,7 +5,12 @@ import { COLORS } from '../../constants';
 import VisuallyHidden from '../VisuallyHidden';
 import Icon from '../Icon';
 
-const SearchInput = ({ label, ...delegated }) => {
+interface SearchInputProps {
+  label?: string;
+  [key: string]: any;
+}
+
+const SearchInput = ({ label, ...delegated }: SearchInputProps) => {
   return (
     <Label>
       <VisuallyHidden>Search</VisuallyHidden>

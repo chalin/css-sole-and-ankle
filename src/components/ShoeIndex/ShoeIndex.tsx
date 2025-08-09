@@ -9,7 +9,12 @@ import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
 
-const ShoeIndex = ({ sortId, setSortId }) => {
+interface ShoeIndexProps {
+  sortId: string;
+  setSortId: (value: string) => void;
+}
+
+const ShoeIndex = ({ sortId, setSortId }: ShoeIndexProps) => {
   return (
     <Wrapper>
       <MainColumn>
@@ -18,7 +23,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
           <Select
             label="Sort"
             value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
+            onChange={(ev: React.ChangeEvent<HTMLSelectElement>) => setSortId(ev.target.value)}
           >
             <option value="newest">Newest Releases</option>
             <option value="price">Price</option>

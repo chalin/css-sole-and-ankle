@@ -4,13 +4,20 @@ import styled from 'styled-components';
 import { COLORS, WEIGHTS } from '../../constants';
 import Icon from '../Icon';
 
-const Select = ({ label, value, children, ...delegated }) => {
+interface SelectProps {
+  label: string;
+  value: string;
+  children: React.ReactNode;
+  [key: string]: any;
+}
+
+const Select = ({ label, value, children, ...delegated }: SelectProps) => {
   const childArray = React.Children.toArray(children);
   const selectedChild = childArray.find(
-    (child) => child.props.value === value
+    (child) => React.isValidElement(child) && (child.props as any).value === value
   );
 
-  const displayedValue = selectedChild.props.children;
+  const displayedValue = React.isValidElement(selectedChild) ? (selectedChild.props as any).children : '';
 
   return (
     <Wrapper>

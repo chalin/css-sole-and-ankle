@@ -3,11 +3,22 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../constants';
 
-const Breadcrumbs = ({ children }) => {
+interface BreadcrumbsProps {
+  children: React.ReactNode;
+}
+
+interface CrumbProps {
+  href: string;
+  children: React.ReactNode;
+  delegated?: any;
+  [key: string]: any;
+}
+
+const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
   return <Wrapper>{children}</Wrapper>;
 };
 
-Breadcrumbs.Crumb = ({ href, children, delegated }) => {
+const Crumb = ({ href, children, ...delegated }: CrumbProps) => {
   return (
     <CrumbWrapper>
       <CrumbLink href={href} {...delegated}>
@@ -16,7 +27,8 @@ Breadcrumbs.Crumb = ({ href, children, delegated }) => {
     </CrumbWrapper>
   );
 };
-Breadcrumbs.Crumb.displayName = 'Breadcrumbs.Crumb';
+
+Breadcrumbs.Crumb = Crumb;
 
 const CrumbWrapper = styled.div`
   &:not(:first-of-type) {

@@ -10,7 +10,17 @@
  * any best-practices from stuff like this data file!
  */
 
-const SHOES = [
+export interface Shoe {
+  slug: string;
+  name: string;
+  imageSrc: string;
+  price: number;
+  salePrice: number | null;
+  releaseDate: number;
+  numOfColors: number;
+}
+
+const SHOES: Shoe[] = [
   {
     slug: 'tech-challenge',
     name: 'NikeCourt Tech Challenge 20',
