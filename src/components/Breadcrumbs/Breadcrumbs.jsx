@@ -16,6 +16,7 @@ Breadcrumbs.Crumb = ({ href, children, delegated }) => {
     </CrumbWrapper>
   );
 };
+Breadcrumbs.Crumb.displayName = 'Breadcrumbs.Crumb';
 
 const CrumbWrapper = styled.div`
   &:not(:first-of-type) {
