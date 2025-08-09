@@ -12,7 +12,7 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Logo />
+        <StyledLogo />
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -26,12 +26,43 @@ const Header = () => {
   );
 };
 
-const MainHeader = styled.div`
-  padding: 0 32px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+const mainHeaderPaddingPx = 32;
+const StyledLogo = styled(Logo)`
+  /* Absolutely position logo on the left */
+  position: absolute;
+  left: ${mainHeaderPaddingPx}px;
+
+  /* Center vertically in parent */
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+
+  // Alternative:
+  // top: 50%;
+  // transform: translateY(-50%);
 `;
 
-const Nav = styled.nav``;
+const MainHeader = styled.div`
+  padding: 0 ${mainHeaderPaddingPx}px;
+  border-bottom: 1px solid ${COLORS.gray[300]};
+  // Chalin
+  height: ${72 / 16}rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the nav naturally */
+  position: relative; /* For absolute positioning context */
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  gap: 48px;
+  /* Nav is naturally centered in the flex container */
+  /* On narrow screens, add left margin to avoid logo overlap */
+  @media (max-width: 900px) {
+    margin-left: 200px; /* Approximate logo width + spacing */
+  }
+`;
 
 const NavLink = styled.a`
   font-size: 1.125rem;
