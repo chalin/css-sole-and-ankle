@@ -1,3 +1,5 @@
+export const _1remPx = 16;
+
 export const COLORS = {
   white: 'hsl(0deg, 0%, 100%)',
   gray: {

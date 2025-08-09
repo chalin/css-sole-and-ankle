@@ -54,4 +54,5 @@ const Wrapper = styled.nav`
   display: flex;
   font-size: 0.875rem;
 `;
+
 export default Breadcrumbs;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS, _1remPx } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 
@@ -28,7 +28,7 @@ const Header = () => {
   );
 };
 
-const mainHeaderPaddingPx = 32;
+const mainHeaderPaddingPx = 2 * _1remPx;
 const logoWidthPx = 140; // TODO: get from logo and/or use rem units.
 const navGapPx = 48;
 
@@ -52,7 +52,7 @@ const MainHeader = styled.div`
   padding: 0 ${mainHeaderPaddingPx}px;
   border-bottom: 1px solid ${COLORS.gray[300]};
   // Chalin
-  height: ${72 / 16}rem;
+  height: ${72 / _1remPx}rem;
   display: flex;
   align-items: center;
   position: relative; /* For logo's absolute positioning */
@@ -63,7 +63,7 @@ const NavSpacer = styled.div`
 `;
 
 const LeftSpacer = styled(NavSpacer)`
-  min-width: ${logoWidthPx + navGapPx}px;
+  min-width: ${(logoWidthPx + navGapPx) / _1remPx}rem;
 `;
 
 const Nav = styled.nav`
