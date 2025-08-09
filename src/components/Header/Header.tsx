@@ -12,8 +12,9 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <StyledLogo />
-        <LeftSpacer />
+        <NavSpacer>
+          <Logo />
+        </NavSpacer>
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -29,24 +30,7 @@ const Header = () => {
 };
 
 const mainHeaderPaddingPx = 2 * _1remPx;
-const logoWidthPx = 140; // TODO: get from logo and/or use rem units.
 const navGapPx = 48;
-
-// Pull logo out of flow so it is easier to center the nav.
-const StyledLogo = styled(Logo)`
-  position: absolute;
-  left: ${mainHeaderPaddingPx}px;
-
-  /* Center vertically in parent */
-  height: 100%;
-  top: 0;
-  display: flex;
-  align-items: center;
-
-  // Alternative:
-  // top: 50%;
-  // transform: translateY(-50%); // 50% of logo's height
-`;
 
 const MainHeader = styled.div`
   padding: 0 ${mainHeaderPaddingPx}px;
@@ -54,22 +38,18 @@ const MainHeader = styled.div`
   // Chalin
   height: ${72 / _1remPx}rem;
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  position: relative; /* For logo's absolute positioning */
-`;
-
-const NavSpacer = styled.div`
-  flex: 1;
-`;
-
-const LeftSpacer = styled(NavSpacer)`
-  min-width: ${(logoWidthPx + navGapPx) / _1remPx}rem;
+  gap: ${navGapPx}px;
 `;
 
 const Nav = styled.nav`
-  flex-shrink: 0;
   display: flex;
   gap: ${navGapPx}px;
+`;
+
+const NavSpacer = styled.div`
+  flex: 1 1 0;
 `;
 
 const NavLink = styled.a`
