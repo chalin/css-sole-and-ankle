@@ -13,6 +13,7 @@ const Header = () => {
       <SuperHeader />
       <MainHeader>
         <StyledLogo />
+        <LeftSpacer />
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -21,14 +22,18 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
+        <NavSpacer />
       </MainHeader>
     </header>
   );
 };
 
 const mainHeaderPaddingPx = 32;
+const logoWidthPx = 140; // TODO: get from logo and/or use rem units.
+const navGapPx = 48;
+
+// Pull logo out of flow so it is easier to center the nav.
 const StyledLogo = styled(Logo)`
-  /* Absolutely position logo on the left */
   position: absolute;
   left: ${mainHeaderPaddingPx}px;
 
@@ -40,7 +45,7 @@ const StyledLogo = styled(Logo)`
 
   // Alternative:
   // top: 50%;
-  // transform: translateY(-50%);
+  // transform: translateY(-50%); // 50% of logo's height
 `;
 
 const MainHeader = styled.div`
@@ -50,18 +55,21 @@ const MainHeader = styled.div`
   height: ${72 / 16}rem;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the nav naturally */
-  position: relative; /* For absolute positioning context */
+  position: relative; /* For logo's absolute positioning */
+`;
+
+const NavSpacer = styled.div`
+  flex: 1;
+`;
+
+const LeftSpacer = styled(NavSpacer)`
+  min-width: ${logoWidthPx + navGapPx}px;
 `;
 
 const Nav = styled.nav`
+  flex-shrink: 0;
   display: flex;
-  gap: 48px;
-  /* Nav is naturally centered in the flex container */
-  /* On narrow screens, add left margin to avoid logo overlap */
-  @media (max-width: 900px) {
-    margin-left: 200px; /* Approximate logo width + spacing */
-  }
+  gap: ${navGapPx}px;
 `;
 
 const NavLink = styled.a`

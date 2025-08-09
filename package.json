@@ -11,7 +11,7 @@
     "dev": "vite",
     "start": "vite",
     "build": "vite build",
-    "fix:format": "prettier --write .",
+    "fix:format": "prettier --check --write .",
     "preview": "vite preview",
     "update:packages": "ncu -u"
   },
