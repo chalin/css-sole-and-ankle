@@ -7,7 +7,7 @@ import Icon from '../Icon';
 
 interface SearchInputProps {
   label?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const SearchInput = ({ label, ...delegated }: SearchInputProps) => {

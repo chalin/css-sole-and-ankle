@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { WEIGHTS } from '../../constants';
 
-const Logo = (props: any) => {
+const Logo = (props: React.HTMLAttributes<HTMLAnchorElement>) => {
   return (
     <Link href="/">
       <Wrapper {...props}>Sole&amp;Ankle</Wrapper>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 interface VisuallyHiddenProps {
   children: React.ReactNode;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const VisuallyHidden = ({ children, ...delegated }: VisuallyHiddenProps) => {

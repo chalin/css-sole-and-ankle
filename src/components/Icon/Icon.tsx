@@ -21,7 +21,7 @@ interface IconProps {
   color?: string;
   size?: number | string;
   strokeWidth?: number;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const Icon = ({ id, color, size, strokeWidth, ...delegated }: IconProps) => {

@@ -10,8 +10,7 @@ interface BreadcrumbsProps {
 interface CrumbProps {
   href: string;
   children: React.ReactNode;
-  delegated?: any;
-  [key: string]: any;
+  delegated?: React.HTMLAttributes<HTMLAnchorElement>;
 }
 
 const Breadcrumbs = ({ children }: BreadcrumbsProps) => {
