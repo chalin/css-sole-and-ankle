@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS } from '../../constants';
+import { COLORS, _1remPx } from '../../constants';
 
 import SearchInput from '../SearchInput';
 import UnstyledButton from '../UnstyledButton';
@@ -27,10 +27,10 @@ const Wrapper = styled.div`
   color: ${COLORS.gray[300]};
   background-color: ${COLORS.gray[900]};
   // Chalin
-  height: ${40 / 16}rem;
+  height: ${40 / _1remPx}rem;
   display: flex;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 ${2 * _1remPx}px;
   gap: 24px;
   line-height: 1;
 
