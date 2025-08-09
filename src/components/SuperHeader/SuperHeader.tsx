@@ -26,10 +26,22 @@ const Wrapper = styled.div`
   font-size: 0.875rem;
   color: ${COLORS.gray[300]};
   background-color: ${COLORS.gray[900]};
+  // Chalin
+  height: ${40 / 16}rem;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 24px;
+  line-height: 1;
+
+  & > * {
+    line-height: inherit;
+  }
 `;
 
 const MarketingMessage = styled.span`
   color: ${COLORS.white};
+  margin-right: auto;
 `;
 
 const HelpLink = styled.a`
