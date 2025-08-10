@@ -37,7 +37,7 @@ const SHOES: Shoe[] = [
     name: 'Nike Metcon 5 AMP',
     imageSrc: '/assets/metcon-5.jpg',
     price: 16500,
-    salePrice: null,
+    salePrice: 14500, // Match Figma sketch
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 2,
     numOfColors: 1,
   },

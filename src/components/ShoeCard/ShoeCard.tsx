@@ -25,12 +25,16 @@ const ShoeCard = ({
   // on-sale. In theory, it is possible for a shoe to be
   // both on-sale and new-release, but in this case, `on-sale`
   // will triumph and be the variant used.
-  // prettier-ignore
-  const variant = typeof salePrice === 'number'
-    ? 'on-sale'
-    : isNewShoe(releaseDate)
-      ? 'new-release'
-      : 'default'
+  const variant =
+    typeof salePrice === 'number'
+      ? 'on-sale'
+      : isNewShoe(releaseDate)
+        ? 'new-release'
+        : 'default';
+
+  const isOnSale =
+    variant === 'on-sale' && salePrice !== undefined && salePrice !== null;
+  const PriceMaybeDiscounted = isOnSale ? DiscountedPrice : Price;
 
   return (
     <Link href={`/shoe/${slug}`}>
@@ -41,10 +45,11 @@ const ShoeCard = ({
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
+          <PriceMaybeDiscounted>{formatPrice(price)}</PriceMaybeDiscounted>
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+          {isOnSale && <SalePrice>{formatPrice(salePrice)}</SalePrice>}
         </Row>
       </Wrapper>
     </Link>
@@ -56,7 +61,21 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Row = styled.div`
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Wrapper = styled.article`
+  * {
+    font-weight: ${WEIGHTS.normal};
+    line-height: 1;
+  }
+  ${Row} + ${Row} {
+    margin-top: 6px;
+  }
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -64,13 +83,6 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
-`;
-
-const Row = styled.div`
-  font-size: 1rem;
-  // TODO: this will be a part of 4b:
-  // display: flex;
-  // justify-content: space-between;
 `;
 
 const Name = styled.h3`
@@ -81,6 +93,11 @@ const Name = styled.h3`
 const Price = styled.span``;
 
 const ColorInfo = styled.p`
+  color: ${COLORS.gray[700]};
+`;
+
+const DiscountedPrice = styled(Price)`
+  text-decoration: line-through;
   color: ${COLORS.gray[700]};
 `;
 
