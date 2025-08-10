@@ -32,6 +32,7 @@ const SHOES: Shoe[] = [
     numOfColors: 2,
   },
   {
+    // cSpell:ignore metcon
     slug: 'metcon-5',
     name: 'Nike Metcon 5 AMP',
     imageSrc: '/assets/metcon-5.jpg',
@@ -68,6 +69,7 @@ const SHOES: Shoe[] = [
     numOfColors: 2,
   },
   {
+    // cSpell:ignore Tiempo
     slug: 'legend-academy',
     name: 'Nike Tiempo Legend 8',
     imageSrc: '/assets/legend-academy.jpg',
@@ -86,6 +88,7 @@ const SHOES: Shoe[] = [
     numOfColors: 1,
   },
   {
+    // cSpell:ignore flyknit
     slug: 'phantom-flyknit',
     name: 'Nike React Phantom Run Flyknit 2',
     imageSrc: '/assets/phantom-flyknit.jpg',
@@ -95,6 +98,7 @@ const SHOES: Shoe[] = [
     numOfColors: 4,
   },
   {
+    // cSpell:ignore lebron
     slug: 'lebron',
     name: 'LeBron 17',
     imageSrc: '/assets/lebron.jpg',

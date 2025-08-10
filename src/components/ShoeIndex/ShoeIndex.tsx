@@ -54,11 +54,6 @@ const Wrapper = styled.div`
   flex-direction: row-reverse;
   align-items: baseline;
   gap: ${2 * _1remPx}px;
-
-  // FIXME: temporary during development:
-  img {
-    width: 200px;
-  }
 `;
 
 const LeftColumn = styled.div`

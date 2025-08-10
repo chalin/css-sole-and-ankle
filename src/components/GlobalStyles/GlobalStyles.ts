@@ -1,5 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
 
+/* Idea for later, maybe:
+$space: (
+  0: 0,
+  1: 0.25rem, // xs
+  2: 0.5rem,  // sm
+  3: 1rem,    // md
+  4: 2rem,    // lg
+  5: 4rem     // xl
+);
+
+$space-aliases: (
+  xs: map-get($space, 1),
+  sm: map-get($space, 2),
+  md: map-get($space, 3),
+  lg: map-get($space, 4),
+  xl: map-get($space, 5)
+);
+*/
+
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126

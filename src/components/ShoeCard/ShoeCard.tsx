@@ -62,10 +62,15 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  width: 100%;
+`;
 
 const Row = styled.div`
   font-size: 1rem;
+  // TODO: this will be a part of 4b:
+  // display: flex;
+  // justify-content: space-between;
 `;
 
 const Name = styled.h3`
