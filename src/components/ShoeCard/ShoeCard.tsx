@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { _1remPx, COLORS, WEIGHTS } from '../../constants';
 import { formatPrice, pluralize, isNewShoe } from '../../utils';
 import { Shoe } from '../../data';
 import Spacer from '../Spacer';
@@ -36,12 +36,20 @@ const ShoeCard = ({
     variant === 'on-sale' && salePrice !== undefined && salePrice !== null;
   const PriceMaybeDiscounted = isOnSale ? DiscountedPrice : Price;
 
+  const FlagMaybe = (variant: string) =>
+    variant === 'on-sale' ? (
+      <SaleFlag>Sale</SaleFlag>
+    ) : variant === 'new-release' ? (
+      <NewReleaseFlag>Just Released!</NewReleaseFlag>
+    ) : null;
+
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
         </ImageWrapper>
+        {FlagMaybe(variant)}
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
@@ -56,9 +64,40 @@ const ShoeCard = ({
   );
 };
 
+const FlagBase = styled.span`
+  position: absolute;
+  top: 12px;
+  right: -4px;
+
+  height: ${2 * _1remPx}px;
+  padding: 9px;
+  padding-left: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: ${14 / _1remPx}rem;
+  font-weight: ${WEIGHTS.semibold} !important;
+
+  // background-color is set by the typed-flag component
+  color: ${COLORS.white};
+
+  border-radius: 2px;
+`;
+
+const SaleFlag = styled(FlagBase)`
+  background-color: ${COLORS.primary};
+`;
+
+const NewReleaseFlag = styled(FlagBase)`
+  background-color: ${COLORS.secondary};
+`;
+
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
+  position: relative;
 `;
 
 const Row = styled.div`
@@ -83,6 +122,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  border-radius: 16px 16px 4px 4px;
 `;
 
 const Name = styled.h3`
