@@ -48,8 +48,8 @@ const ShoeCard = ({
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
+          {FlagMaybe(variant)}
         </ImageWrapper>
-        {FlagMaybe(variant)}
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
